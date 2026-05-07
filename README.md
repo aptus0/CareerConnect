@@ -25,7 +25,7 @@ A full-stack Salesforce application that powers an end-to-end recruitment portal
 │  Job_Position__c │ Application__c │ Candidate_Profile__c    │
 └─────────────────────────────────────────────────────────────┘
 ```
-
+![CareerConnect Next.js Salesforce Architecture](careerconnect_nextjs_sf_architecture.svg)
 ---
 
 ## 📦 Project Structure
