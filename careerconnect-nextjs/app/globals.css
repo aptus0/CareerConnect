@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --bg: #f8fafc;
+  --fg: #0f172a;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: radial-gradient(circle at top left, #e0f2fe 0, transparent 30%), var(--bg);
+  color: var(--fg);
+}
+
+input, textarea, select {
+  outline: none;
+}
+
+.container-page {
+  width: min(1120px, calc(100% - 32px));
+  margin-inline: auto;
+}

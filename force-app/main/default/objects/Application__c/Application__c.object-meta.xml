@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>Application</label>
+    <pluralLabel>Applications</pluralLabel>
+    <nameField>
+        <label>Application Number</label>
+        <type>AutoNumber</type>
+        <displayFormat>APP-{0000}</displayFormat>
+        <startingNumber>1</startingNumber>
+    </nameField>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <sharingModel>ControlledByParent</sharingModel>
+    <fields>
+        <fullName>Job_Position__c</fullName>
+        <label>Job Position</label>
+        <type>MasterDetail</type>
+        <referenceTo>Job_Position__c</referenceTo>
+        <relationshipName>Applications</relationshipName>
+        <relationshipLabel>Applications</relationshipLabel>
+    </fields>
+    <fields>
+        <fullName>Candidate_Profile__c</fullName>
+        <label>Candidate Profile</label>
+        <type>Lookup</type>
+        <referenceTo>Candidate_Profile__c</referenceTo>
+        <relationshipName>Applications</relationshipName>
+        <relationshipLabel>Applications</relationshipLabel>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <label>Status</label>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value><fullName>Submitted</fullName><label>Submitted</label><default>true</default></value>
+                <value><fullName>Under Review</fullName><label>Under Review</label></value>
+                <value><fullName>Interview Scheduled</fullName><label>Interview Scheduled</label></value>
+                <value><fullName>Technical Assessment</fullName><label>Technical Assessment</label></value>
+                <value><fullName>Offer Extended</fullName><label>Offer Extended</label></value>
+                <value><fullName>Hired</fullName><label>Hired</label></value>
+                <value><fullName>Rejected</fullName><label>Rejected</label></value>
+                <value><fullName>Withdrawn</fullName><label>Withdrawn</label></value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Cover_Letter__c</fullName>
+        <label>Cover Letter</label>
+        <type>LongTextArea</type>
+        <length>32768</length>
+        <visibleLines>8</visibleLines>
+    </fields>
+    <fields>
+        <fullName>CV_File_Id__c</fullName>
+        <label>CV File ID</label>
+        <type>Text</type>
+        <length>255</length>
+    </fields>
+    <fields>
+        <fullName>Years_of_Experience__c</fullName>
+        <label>Years of Experience</label>
+        <type>Number</type>
+        <precision>3</precision>
+        <scale>0</scale>
+    </fields>
+    <fields>
+        <fullName>Expected_Salary__c</fullName>
+        <label>Expected Salary</label>
+        <type>Currency</type>
+        <precision>18</precision>
+        <scale>2</scale>
+    </fields>
+    <fields>
+        <fullName>Interview_Date__c</fullName>
+        <label>Interview Date</label>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Rejection_Reason__c</fullName>
+        <label>Rejection Reason</label>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Applicant_Email__c</fullName>
+        <label>Applicant Email</label>
+        <type>Email</type>
+    </fields>
+    <fields>
+        <fullName>Applicant_Phone__c</fullName>
+        <label>Applicant Phone</label>
+        <type>Phone</type>
+    </fields>
+    <fields>
+        <fullName>LinkedIn_URL__c</fullName>
+        <label>LinkedIn URL</label>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>Score__c</fullName>
+        <label>Score</label>
+        <type>Number</type>
+        <precision>5</precision>
+        <scale>2</scale>
+    </fields>
+    <fields>
+        <fullName>Submitted_Date__c</fullName>
+        <label>Submitted Date</label>
+        <type>DateTime</type>
+    </fields>
+</CustomObject>

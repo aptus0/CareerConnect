@@ -1,0 +1,97 @@
+<template>
+    <div class="admin-dashboard">
+        <!-- Stats Cards -->
+        <div class="stats-row">
+            <div class="stat-card">
+                <div class="stat-value">{stats.openJobs}</div>
+                <div class="stat-label">Open Positions</div>
+                <lightning-icon icon-name="utility:work_order" size="small" class="stat-icon"></lightning-icon>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">{stats.totalApplications}</div>
+                <div class="stat-label">Total Applications</div>
+                <lightning-icon icon-name="utility:people" size="small" class="stat-icon"></lightning-icon>
+            </div>
+            <div class="stat-card stat-card-alert">
+                <div class="stat-value">{stats.pendingReview}</div>
+                <div class="stat-label">Pending Review</div>
+                <lightning-icon icon-name="utility:clock" size="small" class="stat-icon"></lightning-icon>
+            </div>
+            <div class="stat-card stat-card-success">
+                <div class="stat-value">{stats.hiredThisMonth}</div>
+                <div class="stat-label">Hired This Month</div>
+                <lightning-icon icon-name="utility:check" size="small" class="stat-icon"></lightning-icon>
+            </div>
+        </div>
+
+        <!-- Filters -->
+        <div class="filter-row">
+            <lightning-combobox
+                label="Filter by Status"
+                value={filterStatus}
+                options={statusOptions}
+                onchange={handleStatusFilter}>
+            </lightning-combobox>
+            <lightning-combobox
+                label="Filter by Position"
+                value={filterJobId}
+                options={jobOptions}
+                onchange={handleJobFilter}>
+            </lightning-combobox>
+        </div>
+
+        <!-- Applications Table -->
+        <lightning-datatable
+            key-field="Id"
+            data={applications}
+            columns={columns}
+            sorted-by={sortedBy}
+            sorted-direction={sortedDirection}
+            onsort={handleSort}
+            onrowaction={handleRowAction}
+            default-sort-direction="desc">
+        </lightning-datatable>
+
+        <!-- Status Update Modal -->
+        <template if:true={showStatusModal}>
+            <section class="modal-overlay">
+                <div class="status-modal">
+                    <h3>Update Application Status</h3>
+                    <p class="modal-app-name">{selectedApp.Name}</p>
+
+                    <lightning-combobox
+                        label="New Status *"
+                        value={newStatus}
+                        options={statusOptions}
+                        onchange={handleNewStatusChange}>
+                    </lightning-combobox>
+
+                    <lightning-input
+                        type="number"
+                        label="Score (0-100)"
+                        value={newScore}
+                        onchange={handleScoreChange}
+                        min="0"
+                        max="100">
+                    </lightning-input>
+
+                    <lightning-textarea
+                        label="Rejection Reason (if applicable)"
+                        value={rejectionReason}
+                        onchange={handleReasonChange}
+                        rows="3">
+                    </lightning-textarea>
+
+                    <div class="modal-actions">
+                        <lightning-button label="Cancel" onclick={closeStatusModal}></lightning-button>
+                        <lightning-button
+                            label="Update Status"
+                            variant="brand"
+                            onclick={submitStatusUpdate}>
+                        </lightning-button>
+                    </div>
+                </div>
+            </section>
+        </template>
+    </div>
+</template>

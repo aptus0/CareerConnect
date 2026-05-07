@@ -1,0 +1,71 @@
+<template>
+    <div class="my-applications">
+        <div class="page-header">
+            <h2>My Applications</h2>
+            <p>Track the status of all your job applications</p>
+        </div>
+
+        <template if:true={isLoading}>
+            <lightning-spinner alternative-text="Loading..." size="medium"></lightning-spinner>
+        </template>
+
+        <template if:false={isLoading}>
+            <template if:true={hasApplications}>
+                <div class="app-list">
+                    <template for:each={applications} for:item="app">
+                        <div key={app.Id} class={app.cardClass}>
+                            <div class="app-header">
+                                <div>
+                                    <div class="app-number">{app.Name}</div>
+                                    <div class="app-job-title">{app.Job_Position__r.Name}</div>
+                                    <div class="app-meta">
+                                        <span>{app.Job_Position__r.Department__c}</span>
+                                        <span>·</span>
+                                        <span>{app.Job_Position__r.Location__c}</span>
+                                    </div>
+                                </div>
+                                <div class="status-block">
+                                    <span class={app.statusClass}>{app.Status__c}</span>
+                                    <div class="submitted-date">{app.formattedDate}</div>
+                                </div>
+                            </div>
+
+                            <!-- Progress Timeline -->
+                            <div class="progress-bar">
+                                <template for:each={statusSteps} for:item="step">
+                                    <div key={step.label} class={step.stepClass}>
+                                        <div class="step-dot"></div>
+                                        <div class="step-label">{step.label}</div>
+                                    </div>
+                                </template>
+                            </div>
+
+                            <template if:true={app.Rejection_Reason__c}>
+                                <div class="rejection-note">
+                                    <lightning-icon icon-name="utility:info" size="x-small"></lightning-icon>
+                                    <span>Feedback: {app.Rejection_Reason__c}</span>
+                                </div>
+                            </template>
+
+                            <template if:true={app.Interview_Date__c}>
+                                <div class="interview-note">
+                                    <lightning-icon icon-name="utility:event" size="x-small"></lightning-icon>
+                                    <span>Interview: {app.formattedInterview}</span>
+                                </div>
+                            </template>
+                        </div>
+                    </template>
+                </div>
+            </template>
+
+            <template if:false={hasApplications}>
+                <div class="empty-state">
+                    <lightning-icon icon-name="utility:open_folder" size="large"></lightning-icon>
+                    <h3>No applications yet</h3>
+                    <p>Start exploring open positions and apply today!</p>
+                    <lightning-button label="Browse Jobs" variant="brand" onclick={handleBrowse}></lightning-button>
+                </div>
+            </template>
+        </template>
+    </div>
+</template>

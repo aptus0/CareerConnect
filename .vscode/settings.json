@@ -1,0 +1,5 @@
+{
+    "xml.preferences.showSchemaDocumentationType": "none",
+    "salesforce.einsteinForDevelopers.enable": false,
+    "salesforce.einsteinForDevelopers.enableAutocompletions": false
+}

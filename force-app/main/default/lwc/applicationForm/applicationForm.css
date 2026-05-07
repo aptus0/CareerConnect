@@ -1,0 +1,72 @@
+.form-container {
+    border-top: 3px solid #0176d3;
+    padding: 1.5rem;
+    background: #f8f9fc;
+    border-radius: 0 0 12px 12px;
+}
+
+.form-header h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #032d60;
+    margin: 0 0 0.25rem 0;
+}
+
+.form-header p {
+    font-size: 0.82rem;
+    color: #666;
+    margin: 0 0 1.25rem 0;
+}
+
+.form-section {
+    background: #fff;
+    padding: 1.25rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    border: 1px solid #e0e5ee;
+}
+
+.form-section h4 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #032d60;
+    margin: 0 0 1rem 0;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.char-count {
+    text-align: right;
+    font-size: 0.75rem;
+    color: #888;
+    margin-top: 0.25rem;
+}
+
+.upload-success {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: #1a7a4a;
+    font-size: 0.82rem;
+    margin-top: 0.5rem;
+}
+
+.form-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.75rem;
+    align-items: center;
+    padding-top: 1rem;
+}
+
+.submit-error {
+    color: #c23934;
+    font-size: 0.85rem;
+    flex: 1;
+}

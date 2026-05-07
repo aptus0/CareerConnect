@@ -1,0 +1,113 @@
+<template>
+    <div class="form-container">
+        <div class="form-header">
+            <h3>Apply for: {jobTitle}</h3>
+            <p>Fill in your details below. Fields marked * are required.</p>
+        </div>
+
+        <div class="form-body">
+            <!-- Contact Info -->
+            <div class="form-section">
+                <h4>Contact Information</h4>
+                <div class="form-row">
+                    <lightning-input
+                        type="email"
+                        label="Email *"
+                        value={formData.email}
+                        onchange={handleFieldChange}
+                        data-field="email"
+                        required>
+                    </lightning-input>
+                    <lightning-input
+                        type="tel"
+                        label="Phone"
+                        value={formData.phone}
+                        onchange={handleFieldChange}
+                        data-field="phone">
+                    </lightning-input>
+                </div>
+                <lightning-input
+                    type="url"
+                    label="LinkedIn Profile URL"
+                    value={formData.linkedInUrl}
+                    onchange={handleFieldChange}
+                    data-field="linkedInUrl"
+                    placeholder="https://linkedin.com/in/yourprofile">
+                </lightning-input>
+            </div>
+
+            <!-- Experience -->
+            <div class="form-section">
+                <h4>Experience</h4>
+                <div class="form-row">
+                    <lightning-input
+                        type="number"
+                        label="Years of Experience *"
+                        value={formData.yearsOfExperience}
+                        onchange={handleFieldChange}
+                        data-field="yearsOfExperience"
+                        min="0"
+                        max="50"
+                        required>
+                    </lightning-input>
+                    <lightning-input
+                        type="number"
+                        label="Expected Salary (£)"
+                        value={formData.expectedSalary}
+                        onchange={handleFieldChange}
+                        data-field="expectedSalary"
+                        formatter="currency">
+                    </lightning-input>
+                </div>
+            </div>
+
+            <!-- Cover Letter -->
+            <div class="form-section">
+                <h4>Cover Letter *</h4>
+                <lightning-textarea
+                    label="Tell us why you're a great fit for this role"
+                    value={formData.coverLetter}
+                    onchange={handleFieldChange}
+                    data-field="coverLetter"
+                    max-length="5000"
+                    rows="6"
+                    required>
+                </lightning-textarea>
+                <div class="char-count">{coverLetterLength} / 5000</div>
+            </div>
+
+            <!-- CV Upload -->
+            <div class="form-section">
+                <h4>Upload CV *</h4>
+                <lightning-file-upload
+                    label="Attach your CV (PDF, DOCX)"
+                    name="cvFile"
+                    accepted-formats=".pdf,.doc,.docx"
+                    record-id={jobId}
+                    onuploadfinished={handleFileUpload}
+                    multiple="false">
+                </lightning-file-upload>
+                <template if:true={uploadedFileName}>
+                    <div class="upload-success">
+                        <lightning-icon icon-name="utility:attach" size="x-small"></lightning-icon>
+                        {uploadedFileName} attached
+                    </div>
+                </template>
+            </div>
+        </div>
+
+        <!-- Form Actions -->
+        <div class="form-footer">
+            <template if:true={submitError}>
+                <div class="submit-error">{submitError}</div>
+            </template>
+            <lightning-button label="Cancel" onclick={handleCancel}></lightning-button>
+            <lightning-button
+                label={submitLabel}
+                variant="brand"
+                onclick={handleSubmit}
+                disabled={isSubmitting}>
+            </lightning-button>
+        </div>
+    </div>
+</template>
