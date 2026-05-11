@@ -6,6 +6,12 @@ A full-stack Salesforce application that powers an end-to-end recruitment portal
 
 
 ![Ekran Resmi 1](Ekran%20Resmi%202026-05-11%2011.38.29.png)
+![Ekran Resmi 1](Ekran%20Resmi%202026-05-11%2011.38.26.png)
+![Ekran Resmi 1](Ekran%20Resmi%202026-05-11%2011.38.38.png)
+![Ekran Resmi 1](Ekran%20Resmi%202026-05-11%2011.38.44.png)
+![Ekran Resmi 1](Ekran%20Resmi%202026-05-11%2011.38.49.png)
+
+
 ---
 
 ## 🧩 Architecture Overview
