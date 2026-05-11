@@ -4,6 +4,8 @@
 
 A full-stack Salesforce application that powers an end-to-end recruitment portal. Built to demonstrate proficiency across the Salesforce platform including Experience Cloud, Lightning Web Components, Apex, REST API, and Trigger frameworks.
 
+
+![Ekran Resmi 1](Ekran%20Resmi%202026-05-11%2011.38.29.png)
 ---
 
 ## 🧩 Architecture Overview
@@ -146,13 +148,6 @@ System.schedule('Daily Job Sync', '0 0 6 * * ?', new ExternalJobSyncScheduler())
 | `ExternalJobSyncService` | ~80% |
 
 ---
-
-## 🏆 CV / Resume Summary
-
-**CareerConnect — Salesforce Experience Cloud Recruitment Portal**
-*Salesforce SFDX Project · Apex API v59.0 · 2024*
-
-Designed and built a full-stack recruitment portal on Salesforce, featuring a public-facing Experience Cloud (All Sites) candidate portal and an internal HR management dashboard. Implemented a multi-event Apex Trigger framework with handler separation, enforcing duplicate prevention, real-time application count rollups, automated position closure, and transactional email notifications. Developed a REST API controller (`@RestResource`) exposing GET, POST, and PATCH endpoints consumed by the portal and external clients. Integrated an external job board API via HTTP Callout and Named Credentials with scheduled daily synchronisation using an `@Schedulable` class. Built five LWC components (search, detail modal, application form with file upload, candidate self-service, and admin datatable) deployed to Experience Cloud pages. Designed three custom objects with 40+ fields, two scoped Permission Sets, and a complete test suite achieving 85–92% code coverage.
 
 **Technologies:** Apex Triggers, LWC, REST API, HTTP Callouts, Experience Cloud (All Sites), SOQL, Named Credentials, Permission Sets, SFDX
 
